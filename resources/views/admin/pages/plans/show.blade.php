@@ -8,6 +8,7 @@
 
 @section('content')
 <h1>Detalhes do  <b>{{$plan->name}}</b></h1>
+@include('admin.includes.alerts')
    <div class="card">
 		
 		<div class="card-body">

@@ -84,11 +84,15 @@ class PlanController extends Controller
     public function destroy($url) {
        
           // uso where prq find só pesquisa pelo id       
-        $plan = $this->repository->where('url',$url)->first();
-
+          //with details significa que eu irei buscar todos os detalhes que estão relacionados a este plano e uma única requisição
+        $plan = $this->repository->with('details')->where('url',$url)->first();
+        
         if(!$plan) {
             //vou retornar para a página anterior com o back()
             return redirect()->back();
+        }
+        if($plan->details->count() > 0) {
+            return redirect()->back()->with('error', 'Exsitem detalhes vinculados a esse plano, portanto não é possível deletar este plano. Delete primeiro todos detalhes para depois deletar o plano');
         }
 
         $plan->delete();
