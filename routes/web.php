@@ -93,12 +93,15 @@ Route::get('plans', 'PlanController@index')->name('plans.index');
 Route::get('/', 'PlanController@index')->name('admin.index');
 });
 
+// Site
+// rota de planos para a empresa escolher
+Route::get('/plan/{url}', 'Site\SiteController@plan')->name('plan.subscription');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'Site\SiteController@index')->name('site.home');
 
 //autenticação
-Auth::routes();
+// posso desabilitar o registro, por exemplo. Auth::routes(['register' => false]);
+Auth::routes(['register' => false]);
 
 

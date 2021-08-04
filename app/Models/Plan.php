@@ -19,6 +19,11 @@ class Plan extends Model
         return $this->belongsToMany(Profile::class);
     }
 
+    //pega todos os tenants vinculados a este plano
+    public function  tenants() {
+        return $this->hasMany(Tenant::class);
+    }
+
     public function search($search = null){
 
         $results = $this

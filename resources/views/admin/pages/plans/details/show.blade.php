@@ -11,7 +11,7 @@
         <li class="breadcrumb-item active"><a href="{{ route('details.plan.edit', [$plan->url, $detail->id]) }}" class="active">Detalhes</a></li>
     </ol>
 
-    <h1>Detalhes do {{ $detail->name }}</h1>
+    <h1>Detalhes do detalhe {{ $detail->name }}</h1>
 @stop
 
 @section('content')
@@ -27,7 +27,7 @@
             <form action="{{ route('details.plan.destroy', [$plan->url, $detail->id]) }}" method="post">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">Deletar</button>
+                <button type="submit" class="btn btn-danger">Deletar o Detalhe {{ $detail->name }}, do plano {{ $plan->name }}</button>
             </form>
         </div>
     </div>
