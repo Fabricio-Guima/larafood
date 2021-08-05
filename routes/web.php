@@ -102,6 +102,6 @@ Route::get('/', 'Site\SiteController@index')->name('site.home');
 
 //autenticação
 // posso desabilitar o registro, por exemplo. Auth::routes(['register' => false]);
-Auth::routes(['register' => false]);
+Auth::routes();
 
 
